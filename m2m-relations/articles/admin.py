@@ -11,7 +11,7 @@ class RelationshipInlineFormset(BaseInlineFormSet):
         for form in self.forms:
             # В form.cleaned_data будет словарь с данными
             # каждой отдельной формы, которые вы можете проверить
-            if form.cleaned_data["main_tag_for_article"]:
+            if form.cleaned_data["is_main"]:
                 main_tags_count += 1
 
             # вызовом исключения ValidationError можно указать админке о наличие ошибки
