@@ -14,10 +14,12 @@
                 </h4>
                 <p class="card-text">{{ article.text }}</p>
                 {% for scope in article.scopes.all %}
-                    <span {% if scope.is_main %} style="background-color:blue" class="badge badge-primary" {% else %}
-                      style="background-color:blue" class="badge badge-secondary" {% endif %}>
+                    {% for article_2 in object_list_2 %}
+                    <span {% if article_2.article == article and scope == article_2.tag and article_2.is_main %} style="background-color:blue" class="badge badge-primary" {% else %}
+                      style="background-color:red" class="badge badge-secondary" {% endif %}>
                       {{ scope.tag_name }}</span>
                 {% endfor %}
+                {%endfor%}
             </div>
         </div>
     </div>
